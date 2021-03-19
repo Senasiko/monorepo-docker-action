@@ -1,0 +1,6 @@
+{
+  "name": "@action-test/b",
+  "dependencies": {
+    "@action-test/a": "workspaces:*"
+  }
+}

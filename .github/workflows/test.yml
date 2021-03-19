@@ -1,0 +1,22 @@
+name: 'build-test'
+on: 
+  pull_request:
+    types: [opened, reopened]
+    branches:
+      - master
+
+jobs:
+  test: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          token: ${{secrets.TOKEN}}
+          registry: docker.io
+          prefix: senasiko
+          username: senasiko
+          password: ${{secrets.DOCKER_HUB_PASSWORD}}
+          remote_host: ${{secrets.REMOTE_HOST}}
+          ssh_private_key: ${{secrets.SSH_PRIVATE_KEY}}
+          network_name: action_test_default

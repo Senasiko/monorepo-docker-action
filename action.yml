@@ -1,0 +1,52 @@
+name: 'Your name here'
+description: 'Provide a description here'
+author: 'Your name or organization here'
+inputs:
+  token:
+    required: true
+    description: 'github token'
+  registry:
+    description: 'Target Docker registry'
+    required: true
+  prefix:
+    description: 'monorepo image prefix'
+    required: false
+    default: ''
+  packages_path:
+    required: false
+    description: 'packages dir path'
+    default: 'packages'
+  username:
+    description: 'Docker registry username'
+    required: false
+  password:
+    description: 'Docker registry password'
+    required: false
+  directory:
+    description: Directory to run `docker build`
+    required: false
+    default: '.'
+  # swarm
+  remote_host:
+    description: Docker host to connect to
+    required: false
+  ssh_port:
+    description: SSH port
+    required: false
+    default: 22
+  ssh_username: 
+    description: SSH user name
+    required: false
+    default: root
+  ssh_password:
+    description: SSH password
+    required: false
+  ssh_private_key:
+    description: SSH private key to use to connect
+    required: false
+  network_name:
+    description: Docker swarm network name
+    required: false
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
